@@ -1,5 +1,5 @@
 {
-  "name": "components-library",
+  "name": "@ManikandanRamSaro/components-library",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "rollup": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -53,8 +54,16 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
@@ -69,7 +78,12 @@
     "classnames": "^2.3.2",
     "prop-types": "^15.8.1",
     "react-polymorphic-box": "^3.0.3",
+    "rollup": "^2.79.1",
+    "rollup-plugin-dts": "^5.1.1",
     "webpack": "^5.75.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ManikandanRamSaro"
   },
   "author": "",
   "license": "ISC"
